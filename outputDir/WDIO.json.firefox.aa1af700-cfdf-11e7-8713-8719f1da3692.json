@@ -1,0 +1,1 @@
+{"start":"2017-11-22T23:48:29.677Z","end":"2017-11-22T23:48:39.661Z","capabilities":{"maxInstances":5,"browserName":"firefox"},"host":"77.87.16.40","port":8088,"baseUrl":"http://arduino.vn","framework":"jasmine","mochaOpts":{"timeout":10000},"suites":[]}

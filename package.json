@@ -1,0 +1,26 @@
+{
+  "name": "testscase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wdio.conf.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "wdio-dot-reporter": "0.0.9",
+    "wdio-jasmine-framework": "^0.3.2",
+    "wdio-json-reporter": "^0.3.1",
+    "wdio-mocha-framework": "^0.5.11",
+    "wdio-phantomjs-service": "^0.2.2",
+    "wdio-selenium-standalone-service": "0.0.9"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "phantom": "^4.0.9",
+    "wdio-json-reporter": "^0.3.1",
+    "wdio-mocha-framework": "^0.5.11",
+    "webdriverio": "^4.9.9"
+  }
+}
