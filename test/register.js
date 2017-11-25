@@ -16,10 +16,10 @@ describe('Test user register!\n', function() {
 		assert.equal(browser.getTitle(), "Tài khoản người dùng | Cộng đồng Arduino Việt Nam"); 
 	})
 	
-        _.map(testcases, function(testcase, index) {
+	_.map(testcases, function(testcase, index) {
 		it(`[#${index}] ${testcase.name}!`, function() {  
 			
-                        var username = $('.username');
+			var username = $('.username');
 			var email = $('#edit-mail');
 			var password = $(".password-field");
 			var password_confirm = $('#edit-pass-pass2');
@@ -32,7 +32,7 @@ describe('Test user register!\n', function() {
 			// submit
 			$("#edit-submit").click();
 			
-			// result		
+			// result
 			var result = browser.getHTML(".notify-container .notify-text", false);
 			result = strip_tags(str_replace("\n"+ '<h2 class="element-invisible">Thông báo lỗi</h2>' + "\n", '', result));
 			result = str_replace("\n", "", result);
