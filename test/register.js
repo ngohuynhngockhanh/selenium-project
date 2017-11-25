@@ -37,7 +37,7 @@ describe('Test user register!\n', function() {
 			$("#edit-submit").click();
 			
 			// result
-			browser.waitForVisible('.notify-container', 3000)//chắc ăn
+			browser.waitForVisible('.notify-container', 6000)//chắc ăn
 			var result = browser.getHTML(".notify-container .notify-text", false);
 			result = strip_tags(str_replace("\n"+ '<h2 class="element-invisible">Thông báo lỗi</h2>' + "\n", '', result));
 			result = str_replace("\n", "", result);

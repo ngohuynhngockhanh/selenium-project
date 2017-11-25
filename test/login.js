@@ -4,7 +4,7 @@ const trim = require('locutus/php/strings/trim');
 const loadjson = require('loadjson');
 const _ = require("lodash");
 const assert = require("assert");
-const sleep = require('sleep');
+const sleep = require('system-sleep');
 
 browser.timeouts('script', 10000);
 browser.timeouts('pageLoad', 10000);
@@ -21,11 +21,13 @@ describe('Test user login!\n', function() {
 	_.map(testcases, function(testcase, index) {
 		it(`[#${index}] ${testcase.name}!`, function() {
 			// reload page for each test case
+			browser.url('/user/logout');
 			browser.url('/');
 
 			// click to show login form
 			$('#block-superfish-1 > ul > li:nth-child(1) > div').click();
-
+			
+			browser.waitForVisible('#edit-name', 3000)//chắc ăn
 			// set value
 			var name = $('#edit-name');
 			name.setValue(testcase.args.username);
@@ -33,17 +35,16 @@ describe('Test user login!\n', function() {
 			pass.setValue(testcase.args.password);
 			$("#edit-submit--2").click();
 			
+			/* no need!
 			// check result
 			var result = browser.getUrl();
 			assert.equal(result, testcase.expected_result_url);
+			*/
 
 			if (testcase.is_success.toString().trim() == "true") {
-				sleep.sleep(3);
-
-				// log out
-				$('#block-superfish-1 > ul > li:nth-child(1) > div').click();
-				$('#tab_user > div > div > button.fluent-big-button.tilebutton').click();
+				assert.equal(1, 1);
 			} else {
+				browser.waitForVisible(".notify-container .notify-text", 6000)
 				var result = browser.getHTML(".notify-container .notify-text", false);
 				result = strip_tags(str_replace("\n"+ '<h2 class="element-invisible">Thông báo lỗi</h2>' + "\n", '', result));
 				result = str_replace("\n", "", result);
