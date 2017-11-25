@@ -11,13 +11,17 @@ browser.timeouts('pageLoad', 30000);
 var testcases = loadjson(__dirname + "/database/register.json");
 
 describe('Test user register!\n', function() {
-	browser.url('/user/register');
+	
 	it('Check title must be: Tài khoản người dùng | Cộng đồng Arduino Việt Nam', function() {       
+		browser.url('/user/register');//chuyển vào đây, cấm để ở ngoài
 		assert.equal(browser.getTitle(), "Tài khoản người dùng | Cộng đồng Arduino Việt Nam"); 
+		
 	})
 	
 	_.map(testcases, function(testcase, index) {
 		it(`[#${index}] ${testcase.name}!`, function() {  
+			browser.url('/user/register');//chuyển vào đây, cấm để ở ngoài
+			browser.waitForVisible('.username', 3000)//chắc ăn
 			
 			var username = $('.username');
 			var email = $('#edit-mail');
@@ -33,6 +37,7 @@ describe('Test user register!\n', function() {
 			$("#edit-submit").click();
 			
 			// result
+			browser.waitForVisible('.notify-container', 3000)//chắc ăn
 			var result = browser.getHTML(".notify-container .notify-text", false);
 			result = strip_tags(str_replace("\n"+ '<h2 class="element-invisible">Thông báo lỗi</h2>' + "\n", '', result));
 			result = str_replace("\n", "", result);
