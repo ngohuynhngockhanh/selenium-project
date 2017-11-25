@@ -1,34 +1,25 @@
 const str_replace = require('locutus/php/strings/str_replace');
-const strip_tags = require('locutus/php/strings/strip_tags')
-const trim = require('locutus/php/strings/trim')
+const strip_tags = require('locutus/php/strings/strip_tags');
+const trim = require('locutus/php/strings/trim');
+const loadjson = require('loadjson');
+const _ = require("underscore");
+const assert = require("assert");
+
 browser.timeouts('script', 60000);
-browser.timeouts('pageLoad', 60000);
-var ok = function() {
-	(1).should.be.equal(1);
-}
+browser.timeouts('pageLoad', 30000);
 
-var error = function() {
-	(1).sholuld.be.equal(2);
-}
-var testcases = loadjson(__dirname + "/database/register.json")
+var testcases = loadjson(__dirname + "/database/register.json");
 
-    
-// => 'read-json'
-describe('Đăng ký tài khoản:', function() {
+describe('Test user register!\n', function() {
 	browser.url('/user/register');
-	it('Tiêu đề chính xác', function() {       
-		
-		//Tiêu đề phải chính xác
-		browser.getTitle().should.be.equal("Tài khoản người dùng | Cộng đồng Arduino Việt Nam");
-		
-		
+	it('Check title must be: Tài khoản người dùng | Cộng đồng Arduino Việt Nam', function() {       
+		assert.equal(browser.getTitle(), "Tài khoản người dùng | Cộng đồng Arduino Việt Nam"); 
 	})
 	
-	_.map(testcases, function(testcase, index) {
+        _.map(testcases, function(testcase, index) {
 		it(`[#${index}] ${testcase.name}!`, function() {  
 			
-			//các element
-			var username = $('.username');
+                        var username = $('.username');
 			var email = $('#edit-mail');
 			var password = $(".password-field");
 			var password_confirm = $('#edit-pass-pass2');
@@ -38,17 +29,16 @@ describe('Đăng ký tài khoản:', function() {
 			password.setValue(testcase.args.password);
 			password_confirm.setValue(testcase.args.password_confirm);
 			
-			//submit
+			// submit
 			$("#edit-submit").click();
 			
-			//kết quả
-			
+			// result		
 			var result = browser.getHTML(".notify-container .notify-text", false);
 			result = strip_tags(str_replace("\n"+ '<h2 class="element-invisible">Thông báo lỗi</h2>' + "\n", '', result));
 			result = str_replace("\n", "", result);
 			result = trim(result);
 			result = result.replace(/  +/g, ' ');
-			result.should.be.equal(testcase.expected_result);
+			assert.equal(result, testcase.expected_result);
 		})
 	})
 });
