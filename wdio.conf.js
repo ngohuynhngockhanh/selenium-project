@@ -46,7 +46,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 1,
+    maxInstances: 5,
 	
     debug: true,
     //
@@ -61,14 +61,14 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome'
-    }/*, {
+    }, {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 5,
         //
         browserName: 'firefox'
-    }*/],
+    }],
     //
     // ===================
     // Test Configurations
@@ -143,9 +143,6 @@ exports.config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-	mochaOpts: {
-        timeout: 200000
-    },
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
@@ -161,7 +158,8 @@ exports.config = {
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
-        ui: 'bdd'
+        ui: 'bdd',
+		timeout: 60000
     },
     //
     // =====
