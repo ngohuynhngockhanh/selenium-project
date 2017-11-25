@@ -2,7 +2,7 @@ const str_replace = require('locutus/php/strings/str_replace');
 const strip_tags = require('locutus/php/strings/strip_tags');
 const trim = require('locutus/php/strings/trim');
 const loadjson = require('loadjson');
-const _ = require("underscore");
+const _ = require("lodash");
 const assert = require("assert");
 
 browser.timeouts('script', 60000);

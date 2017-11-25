@@ -1,0 +1,46 @@
+[{
+	"name": "Valid account",
+	"args": {
+		"username": "tuan_test1",
+		"password": "123456789"
+	},
+	"expected_result_url": "http://arduino.vn/",
+	"expected_result_text": "",
+	"is_success": "true"
+}, {
+	"name": "Not valid username",
+	"args": {
+		"username": "tuan_test_hihi",
+		"password": "123456789"
+	},
+	"expected_result_url": "http://arduino.vn/node?destination=node",
+	"expected_result_text": "Rất tiếc, hệ thống không tìm thấy tên đăng nhập hoặc mật khẩu vừa được nhập. Quên mật khẩu?",
+	"is_success": "false"
+}, {
+	"name": "Wrong password",
+	"args": {
+		"username": "tuan_test1",
+		"password": "123456"
+	},
+	"expected_result_url": "http://arduino.vn/node?destination=node",
+	"expected_result_text": "Rất tiếc, hệ thống không tìm thấy tên đăng nhập hoặc mật khẩu vừa được nhập. Quên mật khẩu?",
+	"is_success": "false"
+}, {
+	"name": "Wrong password",
+	"args": {
+		"username": "",
+		"password": "123456"
+	},
+	"expected_result_url": "http://arduino.vn/node?destination=node",
+	"expected_result_text": "Thông tin Tên người dùng cần được nhập.",
+	"is_success": "false"
+}, {
+	"name": "Wrong password",
+	"args": {
+		"username": "tuan_test1",
+		"password": ""
+	},
+	"expected_result_url": "http://arduino.vn/node?destination=node",
+	"expected_result_text": "Thông tin Mật khẩu cần được nhập. Rất tiếc, hệ thống không tìm thấy tên đăng nhập hoặc mật khẩu vừa được nhập. Quên mật khẩu?",
+	"is_success": "false"
+}]
