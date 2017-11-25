@@ -18,7 +18,12 @@
   },
   "dependencies": {
     "chai": "^4.1.2",
+    "loadjson": "^1.1.2",
+    "locutus": "^2.0.9",
+    "lodash": "^4.17.4",
+    "logplease": "^1.2.14",
     "phantom": "^4.0.9",
+    "read-json": "^1.0.3",
     "wdio-json-reporter": "^0.3.1",
     "wdio-mocha-framework": "^0.5.11",
     "webdriverio": "^4.9.9"

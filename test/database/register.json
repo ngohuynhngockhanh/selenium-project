@@ -1,0 +1,73 @@
+[{
+	"name": "Kiểm thử chính xác",
+	"args": {
+		"username": "kspkspkspkspksp-tuanga",
+		"email": "khanhsuphu111111@gmail.com",
+		"password": "hii2222222",
+		"password_confirm": "hii2222222"
+	},
+	"expected_result": "The answer you entered for the CAPTCHA was not correct."
+}, {
+	"name": "Trùng Username",
+	"args": {
+		"username": "ksp",
+		"email": "khanhsuphu111111@gmail.com",
+		"password": "hii2222222",
+		"password_confirm": "hii2222222"
+	},
+	"expected_result": "The answer you entered for the CAPTCHA was not correct. Tên người dùng ksp đã được sử dụng."
+}, {
+	"name": "Username có ký tự đặc biệt (,)",
+	"args": {
+		"username": "1,ksp",
+		"email": "khanhsuphu111111@gmail.com",
+		"password": "hii2222222",
+		"password_confirm": "hii2222222"
+	},
+	"expected_result": "The answer you entered for the CAPTCHA was not correct. Tên đăng nhập có chứa ký tự không hợp lệ."
+}, {
+	"name": "Username có ký tự đặc biệt (\")",
+	"args": {
+		"username": "1\"ksp",
+		"email": "khanhsuphu111111@gmail.com",
+		"password": "hii2222222",
+		"password_confirm": "hii2222222"
+	},
+	"expected_result": "The answer you entered for the CAPTCHA was not correct. Tên đăng nhập có chứa ký tự không hợp lệ."
+}, {
+	"name": "Email sai cú pháp",
+	"args": {
+		"username": "kspkspkspkspksp-tuanga",
+		"email": "khanhsuphu111111#gmail.com",
+		"password": "hii2222222",
+		"password_confirm": "hii2222222"
+	},
+	"expected_result": "The answer you entered for the CAPTCHA was not correct. Địa chỉ thư điện tử khanhsuphu111111#gmail.com không hợp lệ."
+}, {
+	"name": "Email sai cú pháp",
+	"args": {
+		"username": "kspkspkspkspksp-tuanga",
+		"email": "khanhsuphu111111@gmail,com",
+		"password": "hii2222222",
+		"password_confirm": "hii2222222"
+	},
+	"expected_result": "The answer you entered for the CAPTCHA was not correct. Địa chỉ thư điện tử khanhsuphu111111@gmail,com không hợp lệ."
+}, {
+	"name": "Email sai cú pháp",
+	"args": {
+		"username": "kspkspkspkspksp-tuanga",
+		"email": "khanhsuphu111111@gmailcom",
+		"password": "hii2222222",
+		"password_confirm": "hii2222222"
+	},
+	"expected_result": "The answer you entered for the CAPTCHA was not correct. Địa chỉ thư điện tử khanhsuphu111111@gmailcom không hợp lệ."
+}, {
+	"name": "Mật khẩu không giống nhau",
+	"args": {
+		"username": "kspkspkspkspksp-tuanga",
+		"email": "khanhsuphu111111@gmail.com",
+		"password": "hii2222222",
+		"password_confirm": "hii22222221"
+	},
+	"expected_result": "Mật khẩu không trùng khớp. The answer you entered for the CAPTCHA was not correct."
+}]

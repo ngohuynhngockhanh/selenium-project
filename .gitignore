@@ -35,6 +35,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+errorShots/
 
 # Typescript v1 declaration files
 typings/
@@ -42,7 +43,7 @@ typings/
 # Optional npm cache directory
 .npm
 
-# Optional eslint cache
+# Optional eslint cache 
 .eslintcache
 
 # Optional REPL history

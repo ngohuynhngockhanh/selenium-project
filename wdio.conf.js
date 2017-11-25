@@ -46,7 +46,9 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
+	
+    debug: true,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -59,14 +61,14 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome'
-    }, {
+    }/*, {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 5,
         //
         browserName: 'firefox'
-    }],
+    }*/],
     //
     // ===================
     // Test Configurations
@@ -79,7 +81,7 @@ exports.config = {
     sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'verbose',
+    logLevel: 'result',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -141,11 +143,19 @@ exports.config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
+	mochaOpts: {
+        timeout: 200000
+    },
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
-    reporters: ['dot'],
+    reporters: ['dot', 'json'],
+	reporterOptions: {
+		outputDir: './outputDir/',
+		filename: 'wdio-results',
+		suppressEpilogue: true
+	},
     
     //
     // Options to be passed to Mocha.
@@ -187,6 +197,17 @@ exports.config = {
 		var chai = require('chai');
 		global.expect = chai.expect;
 		chai.Should();
+		
+		const Logger = require('logplease');
+		const logger = Logger.create('utils');
+		global.logger = logger
+		
+		
+		var loadjson = require('loadjson')
+		global.loadjson = loadjson
+		
+		var lodash = require('lodash')
+		global._ = lodash
 	},
     /**
      * Runs before a WebdriverIO command gets executed.
