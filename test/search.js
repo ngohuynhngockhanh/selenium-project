@@ -4,7 +4,6 @@ const trim = require('locutus/php/strings/trim');
 const loadjson = require('loadjson');
 const _ = require("lodash");
 const assert = require("assert");
-const sleep = require('sleep');
 
 browser.timeouts('script', 10000);
 browser.timeouts('pageLoad', 10000);
