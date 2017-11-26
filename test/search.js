@@ -4,6 +4,7 @@ const trim = require('locutus/php/strings/trim');
 const loadjson = require('loadjson');
 const _ = require("lodash");
 const assert = require("assert");
+const sleep = require('system-sleep');
 
 browser.timeouts('script', 10000);
 browser.timeouts('pageLoad', 10000);
@@ -23,6 +24,7 @@ describe('Test user login!\n', function() {
 			browser.url('/');
 
 			// set value
+			browser.waitForVisible('#edit-search-block-form--2', 3000)//chắc ăn
 			var search_feild = $('#edit-search-block-form--2');
 			search_feild.setValue(testcase.search_text);
 			$("#search-block-form > div > div > button").click();
@@ -48,7 +50,7 @@ describe('Test user login!\n', function() {
 				result = result.substring(result.indexOf('>') + 1, result.length);
 				//console.log(result);
 				assert(result.indexOf(testcase.search_text) >= 0);
-			}			
+			}	
 		})
 	})
 });

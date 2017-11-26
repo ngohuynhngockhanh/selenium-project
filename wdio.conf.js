@@ -10,7 +10,7 @@ exports.config = {
     // according to your user and key information. However, if you are using a private Selenium
     // backend you should define the host address, port, and path here.
     //
-    host: '77.87.16.39',
+    host: '77.87.16.43',
     port: 8088,
     path: '/wd/hub',
     
@@ -46,9 +46,8 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 5,
+    maxInstances: 10,
 	
-    debug: true,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
