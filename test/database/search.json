@@ -1,7 +1,17 @@
 [{
+	"name": "Search máy cắt laser",
 	"search_text": "máy cắt laser",
-	"expected_url" : "http://arduino.vn/search/node/m%C3%A1y%20c%E1%BA%AFt%20laser"
+	"expected_url" : "http://arduino.vn/search/node/m%C3%A1y%20c%E1%BA%AFt%20laser",
+	"error_state": "failure"
 }, {
+	"name": "Search nhắn tin",
 	"search_text": "nhắn tin",
-	"expected_url" : "http://arduino.vn/search/node/nh%E1%BA%AFn%20tin"
+	"expected_url" : "http://arduino.vn/search/node/nh%E1%BA%AFn%20tin",
+	"error_state": "failure"
+}, {
+	"name": "Search 2 character -> fail",
+	"search_text": "ks",
+	"expected_url" : "http://arduino.vn/search/node/ks",
+	"error_state": "success",
+	"expected_result_text": "Từ khóa tìm kiếm phải có ít nhất 3 ký tự."
 }]
