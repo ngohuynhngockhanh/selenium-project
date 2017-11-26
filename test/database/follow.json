@@ -1,0 +1,14 @@
+[{
+	"name": "Follow but have not login yet",
+	"is_loggin": "false",
+	"follow_button_state": "failure"
+}, {
+	"name": "Follow but already login",
+	"is_loggin": "true",
+	"args": {
+		"username": "tuan_test1",
+		"password": "123456789"
+	},
+	"follow_button_state": "success",
+	"expected_result_url": "http://arduino.vn/users/ksp"
+}]

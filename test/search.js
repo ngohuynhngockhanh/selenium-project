@@ -29,18 +29,28 @@ describe('Test user login!\n', function() {
 			search_feild.setValue(testcase.search_text);
 			$("#search-block-form > div > div > button").click();
 
-			// check result
-			browser.waitForVisible(".search-result", 10000)//chắc ăn
-			var result = browser.getUrl();
-			assert.equal(result, testcase.expected_url);
-			browser.waitForVisible(".search-result", 3000)//chắc ăn
-			result = browser.getHTML(".search-result", false)[0];
-			var start = result.indexOf('<a');
-			var end = result.indexOf('</a>'); 
-			result = result.substring(start, end);
-			result = result.substring(result.indexOf('>') + 1, result.length);
-			//console.log(result);
-			assert(result.indexOf(testcase.search_text) >= 0);
+			var error = $(".notify-container .notify-text");
+			assert.equal(error.state.toString().trim(), testcase.error_state);
+
+			if (testcase.error_state.toString().trim() == 'success') {
+				var result = browser.getHTML(".notify-container .notify-text", false);
+				result = strip_tags(str_replace("\n"+ '<h2 class="element-invisible">Thông báo lỗi</h2>' + "\n", '', result));
+				result = str_replace("\n", "", result);
+				result = trim(result);
+				result = result.replace(/  +/g, ' ');
+				assert.equal(result, testcase.expected_result_text);
+			} else {
+				// check result
+				var result = browser.getUrl();
+				assert.equal(result, testcase.expected_url);
+				result = browser.getHTML(".search-result", false)[0];
+				var start = result.indexOf('<a');
+				var end = result.indexOf('</a>'); 
+				result = result.substring(start, end);
+				result = result.substring(result.indexOf('>') + 1, result.length);
+				//console.log(result);
+				assert(result.indexOf(testcase.search_text) >= 0);
+			}	
 		})
 	})
 });
