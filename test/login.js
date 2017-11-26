@@ -44,7 +44,7 @@ describe('Test user login!\n', function() {
 			if (testcase.is_success.toString().trim() == "true") {
 				assert.equal(1, 1);
 			} else {
-				browser.waitForVisible(".notify-container .notify-text", 6000)
+				browser.waitForVisible(".notify-container .notify-text", 10000)
 				var result = browser.getHTML(".notify-container .notify-text", false);
 				result = strip_tags(str_replace("\n"+ '<h2 class="element-invisible">Thông báo lỗi</h2>' + "\n", '', result));
 				result = str_replace("\n", "", result);
