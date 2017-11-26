@@ -1,0 +1,7 @@
+[{
+	"search_text": "máy cắt laser",
+	"expected_url" : "http://arduino.vn/search/node/m%C3%A1y%20c%E1%BA%AFt%20laser"
+}, {
+	"search_text": "nhắn tin",
+	"expected_url" : "http://arduino.vn/search/node/nh%E1%BA%AFn%20tin"
+}]
