@@ -1,3 +1,7 @@
 language: node_js
 node_js:
   - "stable"
+script:
+  - npm install --save-dev
+  - npm install webdriverio --save-dev
+  - ./node_modules/.bin/wdio wdio.conf.js
