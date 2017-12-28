@@ -9,11 +9,7 @@ exports.config = {
     // need to define host and port information because WebdriverIO can figure that out
     // according to your user and key information. However, if you are using a private Selenium
     // backend you should define the host address, port, and path here.
-    //
-    host: '77.87.16.43',
-    port: 8088,
-    path: '/wd/hub',
-    
+    //    
     //
     // ==================
     // Specify Test Files
