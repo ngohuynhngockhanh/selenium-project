@@ -4,4 +4,6 @@ node_js:
 script:
   - npm install --save-dev
   - npm install webdriverio --save-dev
+  - curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz | tar xz
+  - java -jar /your/download/directory/selenium-server-standalone-3.5.3.jar &
   - ./node_modules/.bin/wdio wdio.conf.js
